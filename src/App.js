@@ -1,4 +1,4 @@
-import { BrowserRouter,Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Routes,Switch, Route, Redirect } from 'react-router-dom';
 import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -11,14 +11,12 @@ import './assets/styles/tailwind.css';
 
 function App() {
     return (
-        <BrowserRouter>
         <Switch>
             <Route exact path="/" component={Landing} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
-            <Redirect from="*" to="/" />
+            <Redirect from="/*" to="/public/index.html" />
         </Switch>
-        </BrowserRouter>
     );
 }
 
