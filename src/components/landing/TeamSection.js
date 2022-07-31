@@ -31,7 +31,7 @@ export default function TeamSection() {
                         return( <RestaurantCard
                         img={data.strMealThumb}
                         name={data.strMeal}
-                        visi={`${data.strInstructions.substring(0, 30)}....`}
+                        visi={`${data.strInstructions.substring(0, 40)}....`}
                         />)
                     }) : <p>....Loading...</p>}
                 </div>

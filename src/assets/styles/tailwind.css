@@ -2418,8 +2418,8 @@ video {
 	}
 }
 @media (min-width: 1024px){
-	.lg\:mb-0{
-		margin-bottom: 0px;
+	.lg\:mb-12{
+		margin-bottom: 3rem;
 	}
 	.lg\:mt-0{
 		margin-top: 0px;
