@@ -15,7 +15,7 @@ function App() {
             <Route exact path="/" component={Landing} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
-            <Route exact path="/:id/detail" component={Detail} />
+            <Route exact path="/detail/:id" component={Detail} />
             <Redirect from="*" to="/" />
         </Switch>
     );

@@ -15,7 +15,7 @@ export default function LandingRestaurantCard({ id, img, name,visi }) {
                     <H6 color="gray">{name}</H6>
                     <Paragraph color="blueGray">{visi}</Paragraph>
                     <div className="flex items-center justify-center">
-                        <Link to={`/${id}/detail/`}>
+                        <Link to={`/detail/${id}`}>
                             <Button color="lightBlue" ripple="light">
                                 Detail
                             </Button>
