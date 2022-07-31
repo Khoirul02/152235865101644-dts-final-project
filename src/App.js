@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes,Switch, Route, Redirect } from 'react-router-dom';
+import {Switch, Route, Redirect } from 'react-router-dom';
 import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -15,7 +15,7 @@ function App() {
             <Route exact path="/" component={Landing} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
-            <Redirect from="/*" to="/public/index.html" />
+            <Redirect from="*" to="/" />
         </Switch>
     );
 }
