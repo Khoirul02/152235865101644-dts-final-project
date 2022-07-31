@@ -8,7 +8,6 @@ import NavbarToggler from '@material-tailwind/react/NavbarToggler';
 import NavbarCollapse from '@material-tailwind/react/NavbarCollapse';
 import Nav from '@material-tailwind/react/Nav';
 import NavLink from '@material-tailwind/react/NavLink';
-import Icon from '@material-tailwind/react/Icon';
 import Button from '@material-tailwind/react/Button';
 
 export default function DefaultNavbar() {
@@ -48,19 +47,6 @@ export default function DefaultNavbar() {
                                 <Link to="/">
                                     Favorite
                                 </Link>
-                            </NavLink>
-                            <NavLink
-                                href="https://github.com/Khoirul02/"
-                                target="_blank"
-                                rel="noreferrer"
-                                ripple="light"
-                            >
-                                <Icon
-                                    family="font-awesome"
-                                    name="fab fa-github"
-                                    size="xl"
-                                />
-                                &nbsp;Github
                             </NavLink>
                             <NavLink
                                 href="/login"
