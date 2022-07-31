@@ -1,7 +1,7 @@
 /* eslint-disable array-callback-return */
 import Title from './../../components/landing/Title';
 import RestaurantCard from './../../components/landing/RestaurantCard';
-import Api from '../../Api';
+import Api from './../../Api';
 import React, {useEffect, useState} from 'react';
 
 export default function TeamSection() {
@@ -29,6 +29,7 @@ export default function TeamSection() {
                     {meal.length !== 0 ?
                     meal.map((data)=>{
                         return( <RestaurantCard
+                        id={data.idMeal}
                         img={data.strMealThumb}
                         name={data.strMeal}
                         visi={`${data.strInstructions.substring(0, 40)}....`}
