@@ -34,7 +34,7 @@ export default function DefaultNavbar() {
     const logout = () => {
         setAlert(false);
         RepoUtil.RemoveValue('@session');
-        history.push("/login")
+        history.push("/login");
     }
     return (
         <Navbar color="transparent" navbar>

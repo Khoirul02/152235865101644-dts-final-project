@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable no-const-assign */
 import Card from '@material-tailwind/react/Card';
 import CardHeader from '@material-tailwind/react/CardHeader';
@@ -13,12 +14,15 @@ import Page from './../components/login/Page';
 import Container from './../components/login/Container';
 import React, {useState} from 'react';
 import RepoUtil from '../helper/RepoUtil';
+import { useHistory } from "react-router-dom";
 export default function Register() {
     const [nama, setNama] = useState("");
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
     const [alert, setAlert] = useState(false);
     const [msg, setMsg] = useState("");
+    const [status, setStatus] = useState("");
+    const history = useHistory();
     const set1 = (event) => {
         setNama(event.target.value)
     }
@@ -47,15 +51,18 @@ export default function Register() {
                 RepoUtil.StoreAsObject('@user', user)
             }
             console.log(user);
+            setStatus(1)
             setAlert(true);
             setMsg("Regestrasi Berhasil !!");
         } else {
+            setStatus(0)
             setAlert(true);
             setMsg("Perhatikan Formulir Anda !!")
         }
     }
     const handlingClose = () => {
         setAlert(false);
+        status === 1 ? history.push("/login") : null;
     }
     return (
         <Page>
