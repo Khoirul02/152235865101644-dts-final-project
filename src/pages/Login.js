@@ -59,14 +59,7 @@ export default function Login() {
     return (
         <Page>
             <DefaultNavbar />
-            <Container>
-                <Card>
-                    <CardHeader color="lightBlue">
-                        <H5 color="white" style={{ marginBottom: 0 }}>
-                            Login
-                        </H5>
-                    </CardHeader>
-                    {alert === true ?
+            {alert === true ?
                     <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
                     <div class="fixed inset-0 transition-opacity"></div>
                     <div class="fixed z-10 inset-0 overflow-y-auto">
@@ -101,6 +94,13 @@ export default function Login() {
                         </div>
                     </div>
                     </div> : null}
+            <Container>
+                <Card>
+                    <CardHeader color="lightBlue">
+                        <H5 color="white" style={{ marginBottom: 0 }}>
+                            Login
+                        </H5>
+                    </CardHeader>
                     <form onSubmit={handelSubmit}>
                     <CardBody>
                         <div className="mb-12 px-4 bg-bb">

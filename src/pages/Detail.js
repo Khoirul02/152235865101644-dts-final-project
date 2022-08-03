@@ -3,7 +3,7 @@ import DefaultNavbar from './../components/DefaultNavbar';
 import DefaultFooter from './../components/DefaultFooter';
 import Header from './../components/detail/Header';
 import Content from './../components/detail/Content';
-import Api from './../api';
+import Api from './../Api';
 import { useParams } from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 export default function Detail() {
