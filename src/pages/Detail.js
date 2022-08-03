@@ -15,6 +15,7 @@ export default function Detail() {
     const [menuUtamaMeal, setMenuUtamaMeal] = useState();
     const [menuKategoriMeal, setKategoriMeal] = useState();
     const [youtube, setYoutube] = useState();
+    const [web, setWeb] = useState();
     useEffect(()=>{
         dataDetailMenuRestaurant();
     },[]);
@@ -28,6 +29,7 @@ export default function Detail() {
             setMenuUtamaMeal(body.data.meals[0].strIngredient1);
             setKategoriMeal(body.data.meals[0].strCategory);
             setYoutube(body.data.meals[0].strYoutube)
+            setWeb(body.data.meals[0].strSource)
         })
         .catch(err => {
             console.log(err, 'error');
@@ -47,7 +49,8 @@ export default function Detail() {
                     deskripsi={deskripsiDetailMeal}
                     utama={menuUtamaMeal}
                     kategori={menuKategoriMeal}
-                    youtube={youtube} />
+                    youtube={youtube}
+                    web={web} />
             </main>
             <DefaultFooter />
         </>

@@ -5,7 +5,7 @@ import Icon from '@material-tailwind/react/Icon';
 import LeadText from '@material-tailwind/react/LeadText';
 import NavLink from '@material-tailwind/react/NavLink';
 
-export default function Content({foto,nama,lokasi,deskripsi,utama, kategori, youtube}) {
+export default function Content({foto,nama,lokasi,deskripsi,utama, kategori, youtube, web}) {
     return (
         <section className="relative py-16 bg-gray-100">
             <div className="container max-w-7xl px-4 mx-auto">
@@ -26,11 +26,11 @@ export default function Content({foto,nama,lokasi,deskripsi,utama, kategori, you
                             </div>
                             <div className="w-full lg:w-4/12 px-4 lg:order-3 lg:self-center flex justify-center mt-10 lg:justify-end lg:mt-0">
                                 <NavLink
-                                    href={youtube}
+                                    href={web}
                                     target="_blank"
                                 >
                                     <Button color="lightBlue" ripple="light">
-                                        Youtube
+                                        Open
                                     </Button>
                                 </NavLink>
                             </div>
