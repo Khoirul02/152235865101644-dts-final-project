@@ -603,6 +603,12 @@ video {
 .mb-5{
 	margin-bottom: 1.25rem;
 }
+.mt-16{
+	margin-top: 4rem;
+}
+.mr-10{
+	margin-right: 2.5rem;
+}
 .mb-24{
 	margin-bottom: 6rem;
 }
@@ -709,6 +715,9 @@ video {
 }
 .gap-2{
 	gap: 0.5rem;
+}
+.gap-4{
+	gap: 1rem;
 }
 .break-words{
 	overflow-wrap: break-word;

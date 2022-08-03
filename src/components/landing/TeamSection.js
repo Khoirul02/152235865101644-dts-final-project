@@ -3,7 +3,7 @@ import Title from './../../components/landing/Title';
 import RestaurantCard from './../../components/landing/RestaurantCard';
 import Input from '@material-tailwind/react/Input';
 import Button from '@material-tailwind/react/Button';
-import Api from './../../Api';
+import Api from './../../api';
 import React, {useEffect, useState} from 'react';
 
 export default function TeamSection() {
