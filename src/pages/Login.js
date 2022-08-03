@@ -31,16 +31,18 @@ export default function Login() {
         let status = 0;
         if(email !== "" && pass !== ""){
             let data = RepoUtil.GetAsObject('@user');
-            data.map(data => {
-                if(data.email === email && data.pass === pass){
-                    status = 1;
-                    let session = {
-                        nama : data.nama,
-                        email : data.email,
-                    }
-                    RepoUtil.StoreAsObject('@session', session);
-                }   
-            })
+            if(data !== null){
+                data.map(data => {
+                    if(data.email === email && data.pass === pass){
+                        status = 1;
+                        let session = {
+                            nama : data.nama,
+                            email : data.email,
+                        }
+                        RepoUtil.StoreAsObject('@session', session);
+                    }   
+                })
+            }
             if(status === 1){
                 setStatus(status);
                 setAlert(true);
