@@ -60,11 +60,11 @@ export default function KategoriCard({img, name,visi }) {
                         {status !== null ?
                         <Link to={`/kategori/${name}`}>
                             <Button color="lightBlue" ripple="light">
-                                Read More
+                                Lihat
                             </Button>
                         </Link>
                         : <Button onClick={()=> handling()} color="lightBlue" ripple="light">
-                            Read More
+                            Lihat
                           </Button>}
                     </div>
                 </div>
