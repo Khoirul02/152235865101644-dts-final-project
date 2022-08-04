@@ -8,12 +8,11 @@ import LeadText from '@material-tailwind/react/LeadText';
 import Paragraph from '@material-tailwind/react/Paragraph';
 import StatusCard from './../../components/landing/StatusCard';
 import MenuTop from './../../assets/img/soto.jpg';
-
 export default function WorkingSection() {
     return (
         <section className="pb-20 bg-gray-100 -mt-32">
             <div className="container max-w-7xl mx-auto px-4">
-                <div className="flex flex-wrap relative z-50">
+                <div className="flex flex-wrap relative">
                     <StatusCard color="red" icon="stars" title="Pelayanan">
                         Restaurant yang memiliki pelayanan bagus yang
                         sudah dibuktikan dengan testimoni pelanggan 
