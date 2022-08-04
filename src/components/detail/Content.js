@@ -1,11 +1,65 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Button from '@material-tailwind/react/Button';
 import Image from '@material-tailwind/react/Image';
 import H3 from '@material-tailwind/react/Heading3';
 import Icon from '@material-tailwind/react/Icon';
 import LeadText from '@material-tailwind/react/LeadText';
 import NavLink from '@material-tailwind/react/NavLink';
-
-export default function Content({foto,nama,lokasi,deskripsi,utama, kategori, youtube, web}) {
+import ReactPlayer from "react-player";
+import RepoUtil from '../../helper/RepoUtil';
+import React, {useState, useEffect} from 'react';
+export default function Content({email,id,foto,nama,lokasi,deskripsi,utama, kategori, youtube, web}) {
+    const [label, setLabel] = useState("ADD TO FAVORITE");
+    const [status, setStatus] = useState(0);
+    useEffect(()=>{
+        checkStatusFavorite();
+    },[]);
+    const checkStatusFavorite = () => {
+        const check = RepoUtil.GetAsObject('@favorite');
+        if(check !== null){
+            for (let index = 0; index < check.length; index++) {
+                if(check[index].idMeal === id){
+                    setStatus(1);
+                    setLabel("UNFAVORITE");
+                }   
+            }
+        }
+    };
+    const addFavorite = () => {
+        const data = {
+            emailUser : email,
+            idMeal : id,
+            strMeal : nama,
+            strMealThumb : foto,
+            strInstructions : deskripsi,
+        }
+        const status = RepoUtil.GetAsObject('@favorite');
+        if(status == null){
+            let menu = [];
+            menu.push(data);
+            RepoUtil.StoreAsObject('@favorite', menu);
+            console.log(menu);
+        } else {
+            let menuAll = status;
+            menuAll.push(data);
+            RepoUtil.StoreAsObject('@favorite', menuAll)
+            console.log(menuAll);
+        }
+        setStatus(1);
+        setLabel("UNFAVORITE")
+    };
+    const unFavorite = () => {
+        const data = RepoUtil.GetAsObject('@favorite');
+        for (var i = data.length - 1; i >= 0; --i) {
+            if (data[i].idMeal === id && data[i].emailUser === email) {
+                data.splice(i,1);
+            }
+        }
+        RepoUtil.StoreAsObject('@favorite', data);
+        console.log(data);
+        setStatus(0);
+        setLabel("ADD TO FAVORITE");
+    };
     return (
         <section className="relative py-16 bg-gray-100">
             <div className="container max-w-7xl px-4 mx-auto">
@@ -24,13 +78,10 @@ export default function Content({foto,nama,lokasi,deskripsi,utama, kategori, you
                                     </div>
                                 </div>
                             </div>
-                            <div className="w-full lg:w-4/12 px-4 lg:order-3 lg:self-center flex justify-center mt-10 lg:justify-end lg:mt-0">
-                                <NavLink
-                                    href={web}
-                                    target="_blank"
-                                >
-                                    <Button color="lightBlue" ripple="light">
-                                        Open
+                            <div className="w-full lg:w-4/12 px-4 lg:order-3 lg:self-center flex justify-center mt-5 lg:justify-end lg:mt-0">
+                                <NavLink>
+                                    <Button onClick={()=> status === 0 ? addFavorite() : unFavorite()} color="lightBlue" ripple="light">
+                                        {label}
                                     </Button>
                                 </NavLink>
                             </div>
@@ -82,11 +133,23 @@ export default function Content({foto,nama,lokasi,deskripsi,utama, kategori, you
 
                         <div className="mb-10 py-2 border-t border-gray-200 text-center">
                             <div className="flex flex-wrap justify-center">
-                                <div className="w-full lg:w-9/12 px-4 flex flex-col items-center">
+                                <ReactPlayer
+                                    width='100%'
+                                    url={youtube}
+                                />
+                                <div className="w-full lg:w-12/12 px-4 flex flex-col items-center">
                                     <LeadText color="blueGray">
                                         {deskripsi}
                                     </LeadText>
                                 </div>
+                                <NavLink
+                                    href={web}
+                                    target="_blank"
+                                >
+                                <Button color="lightBlue" ripple="light">
+                                        Read More
+                                </Button>
+                                </NavLink>
                             </div>
                         </div>
                     </div>

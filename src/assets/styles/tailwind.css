@@ -607,9 +607,6 @@ video {
 .-mt-20{
 	margin-top: -5rem;
 }
-.mt-10{
-	margin-top: 2.5rem;
-}
 .mr-4{
 	margin-right: 1rem;
 }
@@ -618,6 +615,9 @@ video {
 }
 .mb-2{
 	margin-bottom: 0.5rem;
+}
+.mt-10{
+	margin-top: 2.5rem;
 }
 .ml-auto{
 	margin-left: auto;
@@ -2738,9 +2738,6 @@ video {
 	}
 	.lg\:w-4\/12{
 		width: 33.333333%;
-	}
-	.lg\:w-9\/12{
-		width: 75%;
 	}
 	.lg\:flex-row{
 		flex-direction: row;

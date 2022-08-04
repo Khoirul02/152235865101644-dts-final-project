@@ -55,22 +55,23 @@ export default function DefaultNavbar() {
                 <NavbarCollapse open={openNavbar}>
                     <Nav>
                         <div className="flex flex-col z-50 lg:flex-row lg:items-center">
-                            <NavLink
-                                rel="noreferrer"
-                                ripple="light"
-                            >   
-                                <Link to="/">
-                                    Beranda
-                                </Link>
-                            </NavLink>
-                            <NavLink
-                                rel="noreferrer"
-                                ripple="light"
-                            >   
-                                <Link to="/">
-                                    Favorite
-                                </Link>
-                            </NavLink>
+                            {status !== null ?
+                            <><NavLink
+                                    rel="noreferrer"
+                                    ripple="light"
+                                >
+                                    <Link to="/">
+                                        Beranda
+                                    </Link>
+                                </NavLink><NavLink
+                                    rel="noreferrer"
+                                    ripple="light"
+                                >
+                                        <Link to="/favorite">
+                                            Favorite
+                                        </Link>
+                                    </NavLink></>
+                            : null}
                             {status === null ?
                             <NavLink
                                 href="/login"

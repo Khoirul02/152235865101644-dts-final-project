@@ -6,8 +6,10 @@ import Content from './../components/detail/Content';
 import Api from './../Api';
 import { useParams } from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
+import RepoUtil from '../helper/RepoUtil';
 export default function Detail() {
     let { id } = useParams();
+    const [email, setEmail] = useState();
     const [detailMeal, setDetailMeal] = useState();
     const [fotoDetailMeal, setFotoDetailMeal] = useState();
     const [lokasiDetailMeal, setLokasiDetailMeal] = useState();
@@ -17,8 +19,15 @@ export default function Detail() {
     const [youtube, setYoutube] = useState();
     const [web, setWeb] = useState();
     useEffect(()=>{
+        loadSession();
         dataDetailMenuRestaurant();
     },[]);
+    const loadSession = () => {
+        const session = RepoUtil.GetAsObject('@session');
+        if(session !== null){
+            setEmail(session.email);
+        }
+    }
     const dataDetailMenuRestaurant = () => {
         Api.get(`lookup.php?i=${id}`)
         .then(body => {
@@ -42,7 +51,9 @@ export default function Detail() {
             </div>
             <main>
                 <Header />
-                <Content 
+                <Content
+                    email={email} 
+                    id={id}
                     foto={fotoDetailMeal}
                     nama={detailMeal}
                     lokasi={lokasiDetailMeal}

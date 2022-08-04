@@ -50,7 +50,7 @@ export default function Login() {
             } else {
                 setStatus(status);
                 setAlert(true)
-                setMsg("Login Gagal");
+                setMsg("Login Gagal, Cek Ulang Username & Password Anda");
             }
         } else {
             setStatus(status);
