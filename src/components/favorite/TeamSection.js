@@ -12,6 +12,7 @@ export default function TeamSection() {
     },[]);
     const dataMenuRestaurant = () => {
         const data = RepoUtil.GetAsObject('@favorite');
+        const session = RepoUtil.GetAsObject('@session');
         console.log(data);
         if(data === null){
             setMsg("Data Favorite Anda Kosong !!");
@@ -19,7 +20,14 @@ export default function TeamSection() {
             if(data.length === 0){
                 setMsg("Data Favorite Anda Kosong !!");
             } else {
-                setMeal(data);
+                let itemSessionUSer = [];
+                data.forEach(element => {
+                    if(element.emailUser === session.email){
+                        itemSessionUSer.push(element);
+                    }
+                });
+                setMeal(itemSessionUSer);
+                if(itemSessionUSer.length === 0){ setMsg("Data Favorite Anda Kosong !!") }
             }
         }
     };
@@ -29,17 +37,18 @@ export default function TeamSection() {
                 <Title heading="Favorite Resturant">
                     Menu Restaurant yang sudah anda jadikan list favorite destinasi liburan.
                 </Title>
+                {meal.length !== 0 ?
                 <div className="flex flex-wrap">
-                    {meal.length !== 0 ?
-                    meal.map((data)=>{
+                    {meal.map((data)=>{
                         return( <RestaurantCard
                         id={data.idMeal}
                         img={data.strMealThumb}
                         name={data.strMeal}
                         visi={`${data.strInstructions.substring(0, 40)}....`}
                         />)
-                    }) : <p>{msg}</p>}
+                    })}
                 </div>
+                : <div class='text-center'>{msg}</div>}
             </div>
         </section>
     );

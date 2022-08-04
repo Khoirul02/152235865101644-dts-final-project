@@ -28,16 +28,17 @@ export default function TeamSection() {
                 <Title heading="Jelajahi Kategori">
                     Kategori Restaurant yang bisa anda jadikan referensi destinasi liburan.
                 </Title>
+                {category.length !== 0 ?
                 <div className="flex flex-wrap">
-                    {category.length !== 0 ?
-                    category.map((data)=>{
+                    {category.map((data)=>{
                         return( <KategoriCard
                         img={data.strCategoryThumb}
                         name={data.strCategory}
                         visi={`${data.strCategoryDescription.substring(0, 40)}....`}
                         />)
-                    }) : <p>{msg}</p>}
+                    })}
                 </div>
+                : <div class='text-center'>{msg}</div>}
             </div>
         </section>
     );

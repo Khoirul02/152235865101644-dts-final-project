@@ -31,16 +31,17 @@ export default function TeamSection() {
                 <Title heading="Jelajahi Restaurant">
                     Menu - Kategori {id} pada Restaurant Apps.
                 </Title>
+                {meals.length !== 0 ?
                 <div className="flex flex-wrap">
-                    {meals.length !== 0 ?
-                    meals.map((data)=>{
+                    {meals.map((data)=>{
                         return( <MenuCategoryCard
                         id={data.idMeal}
                         img={data.strMealThumb}
                         name={`${data.strMeal.substring(0, 15)}..`}
                         />)
-                    }) : <p>{msg}</p>}
+                    })}
                 </div>
+                : <div class='text-center'>{msg}</div>}
             </div>
         </section>
     );

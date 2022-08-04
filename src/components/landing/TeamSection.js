@@ -55,17 +55,18 @@ export default function TeamSection() {
                                 </Button>
                     </div>
                 </form>
+                {meal.length !== 0 ?
                 <div className="flex flex-wrap">
-                    {meal.length !== 0 ?
-                    meal.map((data)=>{
+                    {meal.map((data)=>{
                         return( <RestaurantCard
                         id={data.idMeal}
                         img={data.strMealThumb}
                         name={data.strMeal}
                         visi={`${data.strInstructions.substring(0, 40)}....`}
                         />)
-                    }) : <p>{msg}</p>}
+                    })}
                 </div>
+                : <div class='text-center'>{msg}</div>}
             </div>
         </section>
     );

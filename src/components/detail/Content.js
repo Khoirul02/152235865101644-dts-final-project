@@ -134,7 +134,6 @@ export default function Content({email,id,foto,nama,lokasi,deskripsi,utama, kate
                         <div className="mb-10 py-2 border-t border-gray-200 text-center">
                             <div className="flex flex-wrap justify-center">
                                 <ReactPlayer
-                                    width='100%'
                                     url={youtube}
                                 />
                                 <div className="w-full lg:w-12/12 px-4 flex flex-col items-center">
