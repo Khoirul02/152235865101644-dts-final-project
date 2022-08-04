@@ -20,7 +20,7 @@ class SimpleFormChatbot extends Component {
             },
             {
               id:'yes-response', 
-              message:'Silahkan Login dan Registrasi terlebih dahulu', 
+              message:'Silahkan Registrasi dan Login terlebih dahulu', 
               trigger:'end'
             },
             {
