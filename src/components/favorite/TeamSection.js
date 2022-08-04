@@ -13,7 +13,7 @@ export default function TeamSection() {
     const dataMenuRestaurant = () => {
         const data = RepoUtil.GetAsObject('@favorite');
         console.log(data);
-        data.length === 0 ? setMsg("Data Favorite Anda Kosong !!") : setMeal(data);
+        data.length === 0 || data === null ? setMsg("Data Favorite Anda Kosong !!") : setMeal(data);
     };
     return (
         <section className="pt-20 pb-48">
