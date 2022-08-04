@@ -89,7 +89,7 @@ export default function DefaultFooter() {
                                     href="https://www.creative-tim.com?ref=mtk"
                                     className="text-gray-700 hover:text-gray-900 transition-all"
                                 >
-                                    Creative Tim - Modify Khoiru Huda
+                                    Creative Tim - Modify Khoirul Huda
                                 </a>
                                 .
                             </div>

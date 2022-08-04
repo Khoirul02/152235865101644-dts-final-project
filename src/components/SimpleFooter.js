@@ -11,7 +11,7 @@ export default function SimpleFooter() {
                                 href="https://www.creative-tim.com?ref=mtk"
                                 className="text-white"
                             >
-                                Creative Tim - Modify Khoiru Huda
+                                Creative Tim - Modify Khoirul Huda
                             </a>
                             .
                         </div>
